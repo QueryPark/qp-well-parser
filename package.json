@@ -1,17 +1,12 @@
 {
   "name": "qp-well-parser",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "description": "A small package to help destructure api responses into standard well objects",
-  "main": "dist/qp-well-parser.cjs.js",
-  "module": "dist/qp-well-parser.esm.js",
-  "jsnext:main": "dist/qp-well-parser.esm.js",
-  "browser": "dist/qp-well-parser.umd.js",
+  "main": "src/index.js",
   "files": [
-    "dist",
     "src"
   ],
   "scripts": {
-    "build": "rollup -c",
     "cov": "nyc report --reported=lcov",
     "lint": "eslint src",
     "test": "ava",
@@ -20,7 +15,7 @@
     "watch": "watch 'clear && npm run test:suite' src test",
     "start": "npm run watch",
     "verify": "npm run -s test && npm run -s lint",
-    "prepare": "npm run lint && npm test && npm run build",
+    "prepare": "npm run lint && npm test",
     "precommit": "npm run verify",
     "preversion": "npm run verify",
     "postversion": "git add -A && git push --tags && npm publish"
