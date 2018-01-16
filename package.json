@@ -2,11 +2,14 @@
   "name": "qp-well-parser",
   "version": "1.1.1",
   "description": "A small package to help destructure api responses into standard well objects",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "browser": "dist/index.js",
   "files": [
+    "build.js",
     "src"
   ],
   "scripts": {
+    "build": "rollup src/index.js --output.format umd --name \"qp-well-parser\" --output.file dist/index.js",
     "cov": "nyc report --reported=lcov",
     "lint": "eslint src",
     "test": "ava",
@@ -15,7 +18,7 @@
     "watch": "watch 'clear && npm run test:suite' src test",
     "start": "npm run watch",
     "verify": "npm run -s test && npm run -s lint",
-    "prepare": "npm run lint && npm test",
+    "prepare": "npm run lint && npm test && npm run build",
     "precommit": "npm run verify",
     "preversion": "npm run verify",
     "postversion": "git push && git push --tags && npm publish"
@@ -54,5 +57,8 @@
     "eslint-plugin-standard": "^3.0.1",
     "nyc": "^11.4.1",
     "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "rollup": "^0.54.0"
   }
 }
