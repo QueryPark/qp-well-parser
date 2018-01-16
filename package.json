@@ -1,0 +1,58 @@
+{
+  "name": "qp-well-parser",
+  "version": "1.0.0",
+  "description": "A small package to help destructure api responses into standard well objects",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "cov": "nyc report --reported=lcov",
+    "lint": "eslint src",
+    "test": "ava",
+    "test:cov": "nyc npm run test && npm run cov",
+    "test:suite": "npm run test:cov && npm run lint",
+    "watch": "watch 'clear && npm run test:suite' src test",
+    "start": "npm run watch",
+    "verify": "npm run -s test && npm run -s lint",
+    "prepare": "npm run lint && npm test",
+    "precommit": "npm run verify",
+    "preversion": "npm run verify",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "concurrency": 20
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QueryPark/qp-well-parser.git"
+  },
+  "keywords": [
+    "query park",
+    "query",
+    "park",
+    "qp",
+    "well",
+    "parser"
+  ],
+  "author": "Query Park Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QueryPark/qp-well-parser/issues"
+  },
+  "homepage": "https://github.com/QueryPark/qp-well-parser#readme",
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nyc": "^11.4.1",
+    "watch": "^1.0.2"
+  }
+}
