@@ -1,15 +1,17 @@
 {
   "name": "qp-well-parser",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A small package to help destructure api responses into standard well objects",
-  "main": "dist/index.js",
-  "browser": "dist/index.js",
+  "main": "dist/qp-well-parser.cjs.js",
+  "module": "dist/qp-well-parser.esm.js",
+  "jsnext:main": "dist/qp-well-parser.esm.js",
+  "browser": "dist/qp-well-parser.umd.js",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "rollup src/index.js --output.format umd --name \"qp-well-parser\" --output.file dist/index.js",
+    "build": "rollup -c",
     "cov": "nyc report --reported=lcov",
     "lint": "eslint src",
     "test": "ava",
@@ -56,6 +58,8 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "nyc": "^11.4.1",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2",
     "watch": "^1.0.2"
   },
   "dependencies": {
