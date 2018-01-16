@@ -1,6 +1,6 @@
 {
   "name": "qp-well-parser",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A small package to help destructure api responses into standard well objects",
   "main": "dist/qp-well-parser.cjs.js",
   "module": "dist/qp-well-parser.esm.js",
@@ -23,7 +23,7 @@
     "prepare": "npm run lint && npm test && npm run build",
     "precommit": "npm run verify",
     "preversion": "npm run verify",
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git add -A && git push --tags && npm publish"
   },
   "ava": {
     "files": [
