@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 function ensureVersion (version) {
   var versionOk = false
@@ -14,6 +14,8 @@ function ensureVersion (version) {
 
   return versionOk
 }
+
+console.log(typeof Object.assign)
 
 function WellParser (apiVersion) {
   if (typeof apiVersion !== 'string') {
@@ -84,8 +86,8 @@ function WellParser (apiVersion) {
     }
   }
 
-  return Object.assign(parse, {
-    valueOf () {
+  return Object.assign({}, parse, {
+    valueOf: function () {
       return standardWell
     },
 
@@ -97,7 +99,7 @@ function WellParser (apiVersion) {
       return apiVersion
     },
 
-    v1Parse (well) {
+    v1Parse: function (well) {
       return v1Parse(well)
     }
   })
