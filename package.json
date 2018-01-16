@@ -1,11 +1,11 @@
 {
   "name": "qp-well-parser",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A small package to help destructure api responses into standard well objects",
   "main": "dist/index.js",
   "browser": "dist/index.js",
   "files": [
-    "build.js",
+    "dist",
     "src"
   ],
   "scripts": {
