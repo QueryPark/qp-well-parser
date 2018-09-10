@@ -1,8 +1,19 @@
 'use strict'
 
+var v1Parser = require('./v1')
+var v2Parser = require('./v2')
+
+var versions = {
+  v1: v1Parser,
+  v2: v2Parser
+}
+
 function ensureVersion (version) {
   var versionOk = false
-  var acceptableVersions = ['v1']
+  var acceptableVersions = [
+    'v1',
+    'v2'
+  ]
 
   for (var i = 0; i < acceptableVersions.length; i++) {
     var acceptableVersion = acceptableVersions[i]
@@ -17,7 +28,7 @@ function ensureVersion (version) {
 
 function WellParser (apiVersion) {
   if (typeof apiVersion !== 'string') {
-    apiVersion = 'v1'
+    apiVersion = 'v2'
   }
 
   var isVersionOk = ensureVersion(apiVersion)
@@ -26,67 +37,13 @@ function WellParser (apiVersion) {
     throw new Error('Please specify a valid apiVersion')
   }
 
-  var standardWell = {
-    uwi: '',
-    wellName: '',
-    surfaceLocation: '',
-    licensee: '',
-    licenseNumber: '',
-    country: '',
-    stateProvince: ''
-  }
-
-  function v1Parse (well) {
-    // destruct the well if required
-    if (well.data) well = well.data
-
-    var pairs = [
-      ['uwi', well['UWI']],
-      ['wellName', well['WellName']],
-      ['surfaceLocation',
-        well['SurfaceLocation'] ||
-        well['SurfaceLandDescription']
-      ],
-      ['licensee',
-        well['Licensee'] ||
-        well['LicenseeName']
-      ],
-      ['licenseNumber', well['LicenseNumber']],
-      ['country',
-        well['Country'] ||
-        (well['UWI'] && 'CA')
-      ],
-      ['stateProvince',
-        well['StateProvince'] ||
-        (well['SKUWI'] && 'SK')
-      ]
-    ]
-
-    var standardizedWell = {}
-
-    // avoid array methods (browser inconsistencies)
-    for (var i = 0; i < pairs.length; i++) {
-      var pair = pairs[i]
-      var key = pair[0]
-      var value = pair[1]
-      if (typeof value !== 'string') continue
-
-      standardizedWell[key] = value
-    }
-
-    return Object.assign({}, standardWell, standardizedWell)
-  }
-
   function parse (well) {
-    switch (apiVersion) {
-      case 'v1':
-        return v1Parse(well)
-    }
+    return versions[apiVersion].parse(well)
   }
 
   return Object.assign(parse, {
     valueOf () {
-      return standardWell
+      return versions[apiVersion].standardWell
     },
 
     get version () {
@@ -98,7 +55,7 @@ function WellParser (apiVersion) {
     },
 
     v1Parse (well) {
-      return v1Parse(well)
+      return v1Parser.parse(well)
     }
   })
 }

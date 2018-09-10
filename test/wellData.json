@@ -88,12 +88,14 @@
       "SurfaceLocation": "02-07-016-14W4",
       "StateProvince": "AB",
       "Country": "CA",
+      "Region": "AB",
       "SurfaceEW": -745.8,
       "SurfaceNS": 102,
-      "location": {
-        "lon": -111.91887171145898,
-        "lat": 50.32366744872713
-      }
+      "Location": {
+        "Lon": -111.91887171145898,
+        "Lat": 50.32366744872713
+      },
+      "Latest": "1414130400000-0470862"
     },
     "_internalId": "1414130400000-0470862"
   }

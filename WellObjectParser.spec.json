@@ -1,0 +1,31 @@
+{
+  "qpReference": "String",
+  "primaryHeader": {
+    "label": "String",
+    "value": "String"
+  },
+  "subheader": {
+    "label": "String",
+    "value": "String"
+  },
+  "govId": {
+    "label": "String",
+    "value": "String"
+  },
+  "surfaceLocation": {
+    "label": "String",
+    "value": "String"
+  },
+  "attributes": {
+    "country": "String",
+    "region": "String",
+    "coordinates": {
+      "lat": "String",
+      "lon": "String"
+    },
+    "wellStatus": "String",
+    "owner": "String",
+    "latest": "qpRefNo"
+  },
+  "wellData": {}
+}
