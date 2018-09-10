@@ -9,6 +9,7 @@ var versions = {
 }
 
 function ensureVersion (version) {
+  // version here refers to the query park api version, not the version of this package
   var versionOk = false
   var acceptableVersions = [
     'v1',
