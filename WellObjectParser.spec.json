@@ -1,0 +1,33 @@
+{
+  "uuid": "String",
+  "primaryHeader": {
+    "label": "String",
+    "value": "String"
+  },
+  "subheader": {
+    "label": "String",
+    "value": "String"
+  },
+  "govId": {
+    "label": "String",
+    "value": "String"
+  },
+  "surfaceLocation": {
+    "label": "String",
+    "value": "String"
+  },
+  "attributes": {
+    "country": "CA|US",
+    "region": "StateProv",
+    "coordinates": {
+      "lat": "Number",
+      "lon": "Number"
+    },
+    "wellStatus": "String",
+    "substance": "GAS|OIL|COND",
+    "drillDirection": "DIR|VT|HZ",
+    "owner": "String",
+    "isLatest": true
+  },
+  "wellData": {}
+}
