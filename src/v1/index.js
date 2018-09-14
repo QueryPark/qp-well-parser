@@ -1,55 +1,65 @@
-var standardWell = {
-  uwi: '',
-  wellName: '',
-  surfaceLocation: '',
-  licensee: '',
-  licenseNumber: '',
-  country: '',
-  stateProvince: ''
+const alberta = require('./alberta')
+
+const parsers = {
+  AB: alberta
+}
+
+const standardWell = {
+  uuid: '',
+  primaryHeader: {
+    label: '',
+    value: ''
+  },
+  subheader: {
+    label: '',
+    value: ''
+  },
+  govId: {
+    label: '',
+    value: ''
+  },
+  surfaceLocation: {
+    label: '',
+    value: ''
+  },
+  attributes: {
+    country: '',
+    region: '',
+    coordinates: {
+      lat: 0,
+      lon: 0
+    },
+    wellStatus: '',
+    substance: '',
+    drillDirection: '',
+    owner: '',
+
+    isLatest: true
+  },
+  wellData: {}
 }
 
 function parse (well) {
-  // destruct the well if required
-  if (well.data) well = well.data
+  // A well must have a region to be considered valid
+  if (!well.Region) return undefined
 
-  var pairs = [
-    ['uwi', well['UWI']],
-    ['wellName', well['WellName']],
-    ['surfaceLocation',
-      well['SurfaceLocation'] ||
-      well['SurfaceLandDescription']
-    ],
-    ['licensee',
-      well['Licensee'] ||
-      well['LicenseeName']
-    ],
-    ['licenseNumber', well['LicenseNumber']],
-    ['country',
-      well['Country'] ||
-      (well['UWI'] && 'CA')
-    ],
-    ['stateProvince',
-      well['StateProvince'] ||
-      (well['SKUWI'] && 'SK')
-    ]
-  ]
+  // We use the region to determine how to parse the well
+  const region = well.Region
+  const parsedWell = parsers[region](well)
 
-  var standardizedWell = {}
-
-  // avoid array methods (browser inconsistencies)
-  for (var i = 0; i < pairs.length; i++) {
-    var pair = pairs[i]
-    var key = pair[0]
-    var value = pair[1]
-    if (typeof value !== 'string') continue
-
-    standardizedWell[key] = value
+  const standardizedWell = {
+    uuid: well.Uuid,
+    primaryHeader: parsedWell.primaryHeader,
+    subheader: parsedWell.subheader,
+    govId: parsedWell.govId,
+    surfaceLocation: parsedWell.surfaceLocation,
+    attributes: parsedWell.attributes,
+    wellData: well
   }
 
-  return Object.assign({}, standardWell, standardizedWell)
+  return standardizedWell
 }
 
 module.exports = {
-  parse: parse,
-  standardWell: standardWell
+  parse, standardWell
 }

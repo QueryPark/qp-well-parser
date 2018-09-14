@@ -1,5 +1,5 @@
 {
-  "qpReference": "String",
+  "uuid": "String",
   "primaryHeader": {
     "label": "String",
     "value": "String"
@@ -17,15 +17,17 @@
     "value": "String"
   },
   "attributes": {
-    "country": "String",
-    "region": "String",
+    "country": "CA|US",
+    "region": "StateProv",
     "coordinates": {
-      "lat": "String",
-      "lon": "String"
+      "lat": "Number",
+      "lon": "Number"
     },
     "wellStatus": "String",
+    "substance": "GAS|OIL|COND",
+    "drillDirection": "DIR|VT|HZ",
     "owner": "String",
-    "latest": "qpRefNo"
+    "isLatest": true
   },
   "wellData": {}
 }

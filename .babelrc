@@ -1,0 +1,38 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        "env"
+      ],
+      "plugins": [
+        "istanbul",
+        "transform-runtime"
+      ]
+    },
+    "build": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "safari >= 7"
+              ]
+            },
+            "exclude": [
+              "transform-async-to-generator",
+              "transform-regenerator"
+            ],
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        "lodash",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}

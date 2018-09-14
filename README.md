@@ -29,49 +29,73 @@ console.log(wellParser.apiVersion) // v1
 const standardWell = wellParser.valueOf()
 console.log(standardWell)
 /*
-{ 
-  uwi: '',
-  wellName: '',
-  surfaceLocation: '',
-  licensee: '',
-  licenseNumber: '',
-  country: '',
-  stateProvince: ''
+{
+  uuid: '',
+  primaryHeader: {
+    label: '',
+    value: ''
+  },
+  subheader: {
+    label: '',
+    value: ''
+  },
+  govId: {
+    label: '',
+    value: ''
+  },
+  surfaceLocation: {
+    label: '',
+    value: ''
+  },
+  attributes: {
+    country: '',
+    region: '',
+    coordinates: {
+      lat: 0,
+      lon: 0
+    },
+    wellStatus: '',
+    substance: '',
+    drillDirection: '',
+    owner: '',
+
+    isLatest: true
+  },
+  wellData: {}
 }
 */
 
 const well = {
-  "data": {
-    "IssuanceDate": 1414130400000,
-    "StatusDate": 1414130400000,
-    "LicenseStatus": "Issued",
-    "WellName": "CVE 2-7 HZ ALDSON 1-1-16-15",
-    "LicenseNumber": "0470862",
-    "MineralRights": "FREEHOLD",
-    "GroundElevation": 797.6,
-    "UWI": "100/01-01-016-15W4/00",
-    "ProjectedDepth": 2875.5,
-    "BoardFieldCentre": "MEDICINE HAT",
-    "SurfaceCoordinates": "N 102.0M W 745.8M",
-    "LaheeClassification": "DEV (NC)",
-    "Field": "ALDERSON",
-    "TerminatingZone": "GLAUCONITIC SS",
-    "DrillingOperation": "HORIZONTAL",
-    "WellPurpose": "NEW",
-    "WellType": "PRODUCTION",
-    "Substance": "CRUDE OIL",
-    "Licensee": "CENOVUS ENERGY INC.",
-    "SurfaceLocation": "02-07-016-14W4",
-    "StateProvince": "AB",
-    "Country": "CA",
-    "SurfaceEW": -745.8,
-    "SurfaceNS": 102,
-    "location": {
-      "lon": -111.91887171145898,
-      "lat": 50.32366744872713
-    }
-  },
-  "_internalId": "1414130400000-0470862"
+  "FieldCenter": "Medicine Hat",
+  "WellName": "HANSAR ENERGY DD CHINCO 1-1-8-13",
+  "LicenseNumber": "0443004",
+  "DrillingOperation": "DIRECTIONAL",
+  "UWI": "100/01-01-008-13W4/00",
+  "WellType": "PRODUCTION",
+  "ProjectedDepth": 1132,
+  "TerminatingZone": "LIVINGSTONE FM",
+  "Field": "UNDEFINED",
+  "GroundElevation": 847.4,
+  "WellPurpose": "NEW",
+  "LaheeClassification": "NPW (C)",
+  "MineralRights": "ALBERTA CROWN",
+  "CreatedDate": 1326870000000,
+  "SurfaceCoordinates": "N 395.8M W 546.8M",
+  "Substance": "GAS",
+  "SurfaceLocation": "02-01-008-13W4",
+  "Licensee": "HANSAR ENERGY CORP.",
+  "Uuid": "30d3c778-ef5e-44b4-903e-3daa26c291b5",
+  "Region": "AB",
+  "Country": "CA",
+  "StatusDate": 1330637400000,
+  "Next": "null",
+  "Prev": "32e919af-3744-4eb1-a4d1-3846e8f6a264",
+  "LicenseeName": "Hansar Energy Corp.",
+  "ActivityType": "Drill To LD",
+  "ContractorCode": "0ZM7",
+  "ContractorName": "Champion Drilling Inc.",
+  "LicenseeCode": "A645",
+  "RigNumber": "333"
 }
 
 const parsedWell = wellParser(well)
@@ -79,14 +103,37 @@ const parsedWell = wellParser(well)
 
 console.log(parsedWell)
 /*
-{ 
-  uwi: '100/01-01-016-15W4/00',
-  wellName: 'CVE 2-7 HZ ALDSON 1-1-16-15',
-  surfaceLocation: '02-07-016-14W4',
-  licensee: 'CENOVUS ENERGY INC.',
-  licenseNumber: '0470862',
-  country: 'CA',
-  stateProvince: 'AB'
-  }
+{
+  uuid: '30d3c778-ef5e-44b4-903e-3daa26c291b5',
+  primaryHeader: {
+    label: 'Well Name',
+    value: 'HANSAR ENERGY DD CHINCO 1-1-8-13'
+  },
+  subheader: {
+    label: 'UWI',
+    value: '100/01-01-008-13W4/00'
+  },
+  govId: {
+    label: 'License Number',
+    value: '0443004'
+  },
+  surfaceLocation: {
+    label: 'Surface Location',
+    value: '02-01-008-13W4'
+  },
+  attributes: {
+    country: 'CA',
+    region: 'AB',
+    coordinates: null,
+
+    wellStatus: 'NPW (C)',
+    substance: 'GAS',
+    drillDirection: 'DIRECTIONAL',
+    owner: 'HANSAR ENERGY CORP.',
+
+    isLatest: true
+  },
+  wellData: { ... }
+}
 */
 ```

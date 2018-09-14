@@ -1,19 +1,15 @@
 'use strict'
 
 var v1Parser = require('./v1')
-var v2Parser = require('./v2')
-
 var versions = {
-  v1: v1Parser,
-  v2: v2Parser
+  v1: v1Parser
 }
 
 function ensureVersion (version) {
   // version here refers to the query park api version, not the version of this package
   var versionOk = false
   var acceptableVersions = [
-    'v1',
-    'v2'
+    'v1'
   ]
 
   for (var i = 0; i < acceptableVersions.length; i++) {
@@ -29,7 +25,7 @@ function ensureVersion (version) {
 
 function WellParser (apiVersion) {
   if (typeof apiVersion !== 'string') {
-    apiVersion = 'v2'
+    apiVersion = 'v1'
   }
 
   var isVersionOk = ensureVersion(apiVersion)

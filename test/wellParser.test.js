@@ -1,4 +1,4 @@
-const LATEST_VERSION = 'v2'
+const LATEST_VERSION = 'v1'
 const test = require('ava')
 const WellParser = require('../src/index.js')
 

@@ -28,19 +28,23 @@ function albertaWellParser (wellData) {
       }
     },
 
-    get coordinates () {
+    get attributes () {
       return {
-        lat: wellData.Location.Lat,
-        lon: wellData.Location.Lon
+        region: wellData.Region,
+        country: wellData.Country,
+        coordinates: wellData.Location
+          ? {
+            lat: wellData.Location.Lat,
+            lon: wellData.Location.Lon
+          } : null,
+
+        wellStatus: wellData.LaheeClassification,
+        owner: wellData.Licensee,
+        substance: wellData.Substance,
+        drillDirection: wellData.DrillingOperation,
+
+        isLatest: wellData.Next === 'null'
       }
-    },
-
-    get wellStatus () {
-      return wellData.WellType
-    },
-
-    get owner () {
-      return wellData.Licensee
     }
   }
 }
