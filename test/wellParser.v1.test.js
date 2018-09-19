@@ -52,12 +52,26 @@ test('valueOf returns the standard well', t => {
   t.deepEqual(actual, expected, msg)
 })
 
-test('Returns undefined on an empty parse', t => {
-  const msg = 'Should return undefined'
-  const well = wells[0]
-  const actual = wellParser(well)
-  const expected = undefined
-  t.deepEqual(actual, expected, msg)
+test('Throws if no Region is provided', t => {
+  const msg = 'Should return ".Region not provided" error'
+  const expected = '.Region not provided'
+  try {
+    wellParser()
+  } catch (err) {
+    const actual = err.message
+    t.deepEqual(actual, expected, msg)
+  }
+})
+
+test('Invalid region should fail gracefully', t => {
+  const msg = 'Should return ".Region invalid" error'
+  const expected = '.Region not supported: FAKE'
+  try {
+    wellParser({ Region: 'FAKE' })
+  } catch (err) {
+    const actual = err.message
+    t.deepEqual(actual, expected, msg)
+  }
 })
 
 wells.forEach(well => {
@@ -89,7 +103,7 @@ test('Correctly parses an SK well', t => {
 
 test('Correctly parses an AB well', t => {
   const msg = 'Well should be parsed'
-  const well = wells[1]
+  const well = wells[0]
   const actual = wellParser(well)
   const expected = {
     uuid: '30d3c778-ef5e-44b4-903e-3daa26c291b5',
@@ -128,7 +142,7 @@ test('Correctly parses an AB well', t => {
 
 test('Correctly parses an AB well (2)', t => {
   const msg = 'Well should be parsed'
-  const well = wells[2]
+  const well = wells[1]
   const actual = wellParser(well)
   const expected = {
     uuid: '30d3c778-ef5e-44b4-903e-3daa26c291b5',

@@ -41,10 +41,14 @@ const standardWell = {
 
 function parse (well) {
   // A well must have a region to be considered valid
-  if (!well.Region) return undefined
+  if (!well || !well.Region) throw new Error(`.Region not provided`)
 
   // We use the region to determine how to parse the well
   const region = well.Region
+
+  // Check for a valid region, or throw an error if the region is unsupported
+  if (!parsers[region]) throw new Error(`.Region not supported: ${region}`)
+
   const parsedWell = parsers[region](well)
 
   const standardizedWell = {
