@@ -1,6 +1,7 @@
 'use strict'
 
-var v1Parser = require('./v1')
+import v1Parser from './v1/index'
+
 var versions = {
   v1: v1Parser
 }
@@ -57,4 +58,4 @@ function WellParser (apiVersion) {
   })
 }
 
-module.exports = WellParser
+export default WellParser

@@ -49,4 +49,4 @@ function albertaWellParser (wellData) {
   }
 }
 
-module.exports = albertaWellParser
+export default albertaWellParser

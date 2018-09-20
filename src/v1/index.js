@@ -1,4 +1,4 @@
-const alberta = require('./alberta')
+import alberta from './alberta'
 
 const parsers = {
   AB: alberta
@@ -64,6 +64,6 @@ function parse (well) {
   return standardizedWell
 }
 
-module.exports = {
+export default {
   parse, standardWell
 }
