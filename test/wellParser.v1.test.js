@@ -1,5 +1,5 @@
-const test = require('ava')
-const WellParser = require('../src/index.js')
+import test from 'ava'
+import WellParser from '../src/index'
 
 test('', t => {
   t.pass()

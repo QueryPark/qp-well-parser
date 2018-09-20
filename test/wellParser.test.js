@@ -1,6 +1,6 @@
+import test from 'ava'
+import WellParser from '../src/index'
 const LATEST_VERSION = 'v1'
-const test = require('ava')
-const WellParser = require('../src/index.js')
 
 test('Initiating WellParser with no version defaults to the latest', t => {
   const msg = 'Should default to the latest version'
