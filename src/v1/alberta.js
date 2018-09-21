@@ -28,6 +28,13 @@ function albertaWellParser (wellData) {
       }
     },
 
+    get owner () {
+      return {
+        label: 'Licensee',
+        value: wellData.Licensee
+      }
+    },
+
     get attributes () {
       return {
         region: wellData.Region,
@@ -39,7 +46,6 @@ function albertaWellParser (wellData) {
           } : null,
 
         wellStatus: wellData.LaheeClassification,
-        owner: wellData.Licensee,
         substance: wellData.Substance,
         drillDirection: wellData.DrillingOperation,
 

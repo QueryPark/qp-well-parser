@@ -16,6 +16,10 @@
     "label": "String",
     "value": "String"
   },
+  "owner": {
+    "label": "String",
+    "value": "String"
+  },
   "attributes": {
     "country": "CA|US",
     "region": "StateProv",
@@ -25,8 +29,7 @@
     },
     "wellStatus": "String",
     "substance": "GAS|OIL|COND",
-    "drillDirection": "DIR|VT|HZ",
-    "owner": "String",
+    "drillDirection": "DIR|VT|HZ|SLT",
     "isLatest": true
   },
   "wellData": {}

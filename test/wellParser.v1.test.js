@@ -32,6 +32,10 @@ test('valueOf returns the standard well', t => {
       label: '',
       value: ''
     },
+    owner: {
+      label: '',
+      value: ''
+    },
     attributes: {
       country: '',
       region: '',
@@ -43,7 +47,6 @@ test('valueOf returns the standard well', t => {
       wellStatus: '',
       substance: '',
       drillDirection: '',
-      owner: '',
 
       isLatest: true
     },
@@ -123,6 +126,10 @@ test('Correctly parses an AB well', t => {
       label: 'Surface Location',
       value: '02-01-008-13W4'
     },
+    owner: {
+      label: 'Licensee',
+      value: 'HANSAR ENERGY CORP.'
+    },
     attributes: {
       country: 'CA',
       region: 'AB',
@@ -131,7 +138,6 @@ test('Correctly parses an AB well', t => {
       wellStatus: 'NPW (C)',
       substance: 'GAS',
       drillDirection: 'DIRECTIONAL',
-      owner: 'HANSAR ENERGY CORP.',
 
       isLatest: true
     },
@@ -162,6 +168,10 @@ test('Correctly parses an AB well (2)', t => {
       label: 'Surface Location',
       value: '02-01-008-13W4'
     },
+    owner: {
+      label: 'Licensee',
+      value: 'HANSAR ENERGY CORP.'
+    },
     attributes: {
       country: 'CA',
       region: 'AB',
@@ -173,7 +183,6 @@ test('Correctly parses an AB well (2)', t => {
       wellStatus: 'NPW (C)',
       substance: 'GAS',
       drillDirection: 'DIRECTIONAL',
-      owner: 'HANSAR ENERGY CORP.',
 
       isLatest: false
     },
