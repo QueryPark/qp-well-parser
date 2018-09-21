@@ -47,6 +47,10 @@ console.log(standardWell)
     label: '',
     value: ''
   },
+  owner: {
+    label: '',
+    value: ''
+  },
   attributes: {
     country: '',
     region: '',
@@ -57,7 +61,6 @@ console.log(standardWell)
     wellStatus: '',
     substance: '',
     drillDirection: '',
-    owner: '',
 
     isLatest: true
   },
@@ -121,6 +124,10 @@ console.log(parsedWell)
     label: 'Surface Location',
     value: '02-01-008-13W4'
   },
+  owner: {
+    label: 'Licensee',
+    value: 'HANSAR ENERGY CORP.'
+  },
   attributes: {
     country: 'CA',
     region: 'AB',
@@ -128,8 +135,7 @@ console.log(parsedWell)
 
     wellStatus: 'NPW (C)',
     substance: 'GAS',
-    drillDirection: 'DIRECTIONAL',
-    owner: 'HANSAR ENERGY CORP.',
+    drillDirection: 'DIR',
 
     isLatest: true
   },
