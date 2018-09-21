@@ -22,6 +22,10 @@ const standardWell = {
     label: '',
     value: ''
   },
+  owner: {
+    label: '',
+    value: ''
+  },
   attributes: {
     country: '',
     region: '',
@@ -32,7 +36,6 @@ const standardWell = {
     wellStatus: '',
     substance: '',
     drillDirection: '',
-    owner: '',
 
     isLatest: true
   },
@@ -57,6 +60,7 @@ function parse (well) {
     subheader: parsedWell.subheader,
     govId: parsedWell.govId,
     surfaceLocation: parsedWell.surfaceLocation,
+    owner: parsedWell.owner,
     attributes: parsedWell.attributes,
     wellData: well
   }

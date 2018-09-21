@@ -1,5 +1,5 @@
 import test from 'ava'
-import WellParser from '../src/index'
+import WellParser from '../../src'
 
 test('', t => {
   t.pass()
@@ -7,7 +7,7 @@ test('', t => {
 
 const wellParser = WellParser('v1')
 
-const wells = require('./wellData.json')
+const wells = require('../wellData.json')
 
 const standardWell = wellParser.valueOf()
 
@@ -32,6 +32,10 @@ test('valueOf returns the standard well', t => {
       label: '',
       value: ''
     },
+    owner: {
+      label: '',
+      value: ''
+    },
     attributes: {
       country: '',
       region: '',
@@ -43,7 +47,6 @@ test('valueOf returns the standard well', t => {
       wellStatus: '',
       substance: '',
       drillDirection: '',
-      owner: '',
 
       isLatest: true
     },
@@ -123,6 +126,10 @@ test('Correctly parses an AB well', t => {
       label: 'Surface Location',
       value: '02-01-008-13W4'
     },
+    owner: {
+      label: 'Licensee',
+      value: 'HANSAR ENERGY CORP.'
+    },
     attributes: {
       country: 'CA',
       region: 'AB',
@@ -130,8 +137,7 @@ test('Correctly parses an AB well', t => {
 
       wellStatus: 'NPW (C)',
       substance: 'GAS',
-      drillDirection: 'DIRECTIONAL',
-      owner: 'HANSAR ENERGY CORP.',
+      drillDirection: 'DIR',
 
       isLatest: true
     },
@@ -162,6 +168,10 @@ test('Correctly parses an AB well (2)', t => {
       label: 'Surface Location',
       value: '02-01-008-13W4'
     },
+    owner: {
+      label: 'Licensee',
+      value: 'HANSAR ENERGY CORP.'
+    },
     attributes: {
       country: 'CA',
       region: 'AB',
@@ -172,8 +182,7 @@ test('Correctly parses an AB well (2)', t => {
 
       wellStatus: 'NPW (C)',
       substance: 'GAS',
-      drillDirection: 'DIRECTIONAL',
-      owner: 'HANSAR ENERGY CORP.',
+      drillDirection: 'DIR',
 
       isLatest: false
     },

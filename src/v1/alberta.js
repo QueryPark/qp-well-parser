@@ -1,3 +1,5 @@
+import drillDirection from './util/drillDirection'
+
 function albertaWellParser (wellData) {
   return {
     get primaryHeader () {
@@ -28,6 +30,13 @@ function albertaWellParser (wellData) {
       }
     },
 
+    get owner () {
+      return {
+        label: 'Licensee',
+        value: wellData.Licensee
+      }
+    },
+
     get attributes () {
       return {
         region: wellData.Region,
@@ -39,9 +48,8 @@ function albertaWellParser (wellData) {
           } : null,
 
         wellStatus: wellData.LaheeClassification,
-        owner: wellData.Licensee,
         substance: wellData.Substance,
-        drillDirection: wellData.DrillingOperation,
+        drillDirection: drillDirection(wellData.DrillingOperation),
 
         isLatest: wellData.Next === 'null'
       }
