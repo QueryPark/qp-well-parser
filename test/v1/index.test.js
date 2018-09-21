@@ -1,5 +1,5 @@
 import test from 'ava'
-import WellParser from '../src/index'
+import WellParser from '../../src'
 
 test('', t => {
   t.pass()
@@ -7,7 +7,7 @@ test('', t => {
 
 const wellParser = WellParser('v1')
 
-const wells = require('./wellData.json')
+const wells = require('../wellData.json')
 
 const standardWell = wellParser.valueOf()
 
@@ -137,7 +137,7 @@ test('Correctly parses an AB well', t => {
 
       wellStatus: 'NPW (C)',
       substance: 'GAS',
-      drillDirection: 'DIRECTIONAL',
+      drillDirection: 'DIR',
 
       isLatest: true
     },
@@ -182,7 +182,7 @@ test('Correctly parses an AB well (2)', t => {
 
       wellStatus: 'NPW (C)',
       substance: 'GAS',
-      drillDirection: 'DIRECTIONAL',
+      drillDirection: 'DIR',
 
       isLatest: false
     },

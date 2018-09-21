@@ -1,3 +1,5 @@
+import drillDirection from './util/drillDirection'
+
 function albertaWellParser (wellData) {
   return {
     get primaryHeader () {
@@ -47,7 +49,7 @@ function albertaWellParser (wellData) {
 
         wellStatus: wellData.LaheeClassification,
         substance: wellData.Substance,
-        drillDirection: wellData.DrillingOperation,
+        drillDirection: drillDirection(wellData.DrillingOperation),
 
         isLatest: wellData.Next === 'null'
       }
