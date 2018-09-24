@@ -51,5 +51,41 @@
       "Lat": 12.34567,
       "Lon": 12.34567
     }
+  },
+  {
+    "OperatorAbbreviation": "TAQA NORTH",
+    "SurfaceLocation": "C- 089-J/094-A-16",
+    "WellAuthorizationGrantDate": 1136505600000,
+    "Location": {
+      "lat": 56.989252116743806,
+      "lon": -120.23508913272731
+    },
+    "WellAuthorization": "20609",
+    "WellName": "TAQA NORTH   DRAKE C- 089-J/094-A-16",
+    "BottomHoleLocation": "C-089-J/094-A-16",
+    "CertificateOfRestorationFlag": "N",
+    "WellMode": "ABAN",
+    "WellFluid": "UND",
+    "WellOperation": "UND",
+    "DrillingEventSequenceNumber": "00",
+    "RigReleaseDate": 1142553600000,
+    "AreaCode": "9000",
+    "FormationCode": "2700",
+    "PoolSequence": "C-089-J/094-A-16",
+    "ProjectCode": "00",
+    "CompletionEventSequenceNumber": "02",
+    "CompletionEventMode": "ABAN",
+    "CompletionEventFluid": "UND",
+    "CompletionEventOperation": "UND",
+    "UWI": "200C089J094A1602",
+    "WellClassification": "EO",
+    "Confidential": "",
+    "ConfidentialReleaseDate": 1158451200000,
+    "OGCFileNumber": "9622057",
+    "Country": "CA",
+    "Region": "BC",
+    "Uuid": "1b9277cd-376d-48bb-bf55-827f082206cd",
+    "Next": "null",
+    "Prev": "null"
   }
 ]

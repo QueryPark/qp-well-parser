@@ -1,6 +1,8 @@
+import bc from './bc'
 import alberta from './alberta'
 
 const parsers = {
+  BC: bc,
   AB: alberta
 }
 

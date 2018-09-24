@@ -86,24 +86,6 @@ wells.forEach(well => {
   })
 })
 
-/*
-test('Correctly parses an SK well', t => {
-  const msg = 'Well should be parsed'
-  const well = wells[1]
-  const actual = wellParser(well)
-  const expected = {
-    uwi: '102/01-06-030-20W3/00',
-    wellName: '',
-    surfaceLocation: '01-07-030-20W3',
-    licensee: 'CRESCENT POINT ENERGY CORP.',
-    licenseNumber: '84673',
-    country: 'CA',
-    stateProvince: 'SK'
-  }
-  t.deepEqual(actual, expected, msg)
-})
-*/
-
 test('Correctly parses an AB well', t => {
   const msg = 'Well should be parsed'
   const well = wells[0]
@@ -185,6 +167,51 @@ test('Correctly parses an AB well (2)', t => {
       drillDirection: 'DIR',
 
       isLatest: false
+    },
+    wellData: well
+  }
+  t.deepEqual(actual, expected, msg)
+})
+
+test('Correctly parses a BC well', t => {
+  const msg = 'Well should be parsed'
+  const well = wells[2]
+  const actual = wellParser(well)
+  const expected = {
+    uuid: '1b9277cd-376d-48bb-bf55-827f082206cd',
+    primaryHeader: {
+      label: 'Well Name',
+      value: 'TAQA NORTH   DRAKE C- 089-J/094-A-16'
+    },
+    subheader: {
+      label: 'UWI',
+      value: '200C089J094A1602'
+    },
+    govId: {
+      label: 'Well Authorization',
+      value: '20609'
+    },
+    surfaceLocation: {
+      label: 'Surface Location',
+      value: 'C- 089-J/094-A-16'
+    },
+    owner: {
+      label: 'Operator Abbreviation',
+      value: 'TAQA NORTH'
+    },
+    attributes: {
+      country: 'CA',
+      region: 'BC',
+      coordinates: {
+        lat: 56.989252116743806,
+        lon: -120.23508913272731
+      },
+
+      wellStatus: 'ABAN',
+      substance: 'UND',
+      drillDirection: false,
+
+      isLatest: true
     },
     wellData: well
   }
