@@ -1,9 +1,11 @@
 import bc from './bc'
 import alberta from './alberta'
+import saskatchewan from './saskatchewan'
 
 const parsers = {
   BC: bc,
-  AB: alberta
+  AB: alberta,
+  SK: saskatchewan
 }
 
 const standardWell = {
