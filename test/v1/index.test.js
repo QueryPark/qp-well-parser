@@ -218,6 +218,48 @@ test('Correctly parses a BC well', t => {
   t.deepEqual(actual, expected, msg)
 })
 
+test('Correctly parses a SK well', t => {
+  const msg = 'Well should be parsed'
+  const well = wells[3]
+  const actual = wellParser(well)
+  const expected = {
+    uuid: 'a3b6d939-d9d1-4a4d-a4c5-ab36b4d550d8',
+    primaryHeader: {
+      label: 'Well Name',
+      value: 'NORTHERN BLIZZARD RESOURCES INC. HZ 15-22-42-25 7-22-42-25'
+    },
+    subheader: {
+      label: 'UWI',
+      value: 'SK WI 101072204225W300'
+    },
+    govId: {
+      label: 'License Number',
+      value: '50241'
+    },
+    surfaceLocation: {
+      label: 'Surface Land Description',
+      value: '15-22-042-25W3'
+    },
+    owner: {
+      label: 'Licensee',
+      value: 'NORTHERN BLIZZARD RESOURCES INC.'
+    },
+    attributes: {
+      country: 'CA',
+      region: 'SK',
+      coordinates: null,
+
+      wellStatus: 'Dev Well',
+      substance: null,
+      drillDirection: 'HZ',
+
+      isLatest: false
+    },
+    wellData: well
+  }
+  t.deepEqual(actual, expected, msg)
+})
+
 /*
 Create some tests that actually use the real qp api using an internal dev api key
 */
