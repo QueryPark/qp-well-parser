@@ -1,6 +1,6 @@
 {
   "name": "qp-well-parser",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A small package to help destructure api responses into standard well objects",
   "main": "dist/qp-well-parser.cjs.js",
   "module": "dist/qp-well-parser.esm.js",
