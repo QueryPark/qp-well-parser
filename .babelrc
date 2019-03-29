@@ -2,17 +2,17 @@
   "env": {
     "development": {
       "presets": [
-        "env"
+        "@babel/env"
       ],
       "plugins": [
         "istanbul",
-        "transform-runtime"
+        "@babel/transform-runtime"
       ]
     },
     "build": {
       "presets": [
         [
-          "env",
+          "@babel/env",
           {
             "targets": {
               "browsers": [
@@ -21,8 +21,8 @@
               ]
             },
             "exclude": [
-              "transform-async-to-generator",
-              "transform-regenerator"
+              "@babel/plugin-transform-async-to-generator",
+              "@babel/plugin-transform-regenerator"
             ],
             "modules": false,
             "loose": true
@@ -30,7 +30,7 @@
         ]
       ],
       "plugins": [
-        "transform-object-rest-spread"
+        "@babel/plugin-proposal-object-rest-spread"
       ]
     }
   }

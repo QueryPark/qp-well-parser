@@ -1,12 +1,11 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
-import uglify from 'rollup-plugin-uglify'
+import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
 const babelConfig = {
-  exclude: 'node_modules/**',
-  plugins: ['external-helpers']
+  exclude: 'node_modules/**'
 }
 
 const config = [
@@ -24,7 +23,7 @@ const config = [
       }),
       commonjs(),
       babel(babelConfig),
-      uglify()
+      terser()
     ]
   },
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -44,7 +43,7 @@ const config = [
     ],
     plugins: [
       babel(babelConfig),
-      uglify()
+      terser()
     ]
   }
 ]

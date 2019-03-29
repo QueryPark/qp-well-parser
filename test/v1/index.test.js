@@ -1,10 +1,6 @@
 import test from 'ava'
 import WellParser from '../../src'
 
-test('', t => {
-  t.pass()
-})
-
 const wellParser = WellParser('v1')
 
 const wells = require('../wellData.json')
@@ -77,9 +73,9 @@ test('Invalid region should fail gracefully', t => {
   }
 })
 
-wells.forEach(well => {
-  test('Calling the v1Parse directly should equal calling parse', t => {
-    const msg = 'Parse results should be equal'
+test('Calling the v1Parse directly should equal calling parse', t => {
+  const msg = 'Parse results should be equal'
+  wells.forEach(well => {
     const actual = wellParser(well)
     const expected = wellParser.v1Parse(well)
     t.deepEqual(actual, expected, msg)

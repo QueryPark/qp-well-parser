@@ -51,7 +51,7 @@ function saskatchewanWellParser (wellData) {
         substance: null,
         drillDirection: drillDirection(wellData.Trajectory),
 
-        isLatest: wellData.Next === 'null'
+        isLatest: wellData.Next === 'null' || !wellData.Next
       }
     }
   }
