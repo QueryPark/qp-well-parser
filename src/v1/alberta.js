@@ -51,7 +51,7 @@ function albertaWellParser (wellData) {
         substance: wellData.Substance,
         drillDirection: drillDirection(wellData.DrillingOperation),
 
-        isLatest: wellData.Next === 'null'
+        isLatest: wellData.Next === 'null' || !wellData.Next
       }
     }
   }

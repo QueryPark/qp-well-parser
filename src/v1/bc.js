@@ -51,7 +51,7 @@ function bcWellParser (wellData) {
         substance: wellData.WellFluid,
         drillDirection: drillDirection(/* na for now */),
 
-        isLatest: wellData.Next === 'null'
+        isLatest: wellData.Next === 'null' || !wellData.Next
       }
     }
   }
