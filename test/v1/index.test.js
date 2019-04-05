@@ -106,7 +106,7 @@ test('Correctly parses an AB well', t => {
     },
     owner: {
       label: 'Licensee',
-      value: 'HANSAR ENERGY CORP.'
+      value: 'Hansar Energy Corp.'
     },
     attributes: {
       country: 'CA',
@@ -148,7 +148,7 @@ test('Correctly parses an AB well (2)', t => {
     },
     owner: {
       label: 'Licensee',
-      value: 'HANSAR ENERGY CORP.'
+      value: 'Hansar Energy Corp.'
     },
     attributes: {
       country: 'CA',
