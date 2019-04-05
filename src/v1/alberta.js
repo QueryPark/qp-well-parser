@@ -33,7 +33,7 @@ function albertaWellParser (wellData) {
     get owner () {
       return {
         label: 'Licensee',
-        value: wellData.Licensee
+        value: wellData.LicenseeName
       }
     },
 
