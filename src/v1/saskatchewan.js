@@ -1,6 +1,11 @@
 import drillDirection from './util/drillDirection'
 
 function saskatchewanWellParser (wellData) {
+  const relevantComponent = wellData.Components.reduce((current, component) =>
+    (!current.UWI || current.UWI.slice(-2) < component.UWI.slice(-2))
+      ? component
+      : current, {})
+
   return {
     get primaryHeader () {
       return {
@@ -12,7 +17,7 @@ function saskatchewanWellParser (wellData) {
     get subheader () {
       return {
         label: 'UWI',
-        value: wellData.UWI
+        value: relevantComponent.UWI
       }
     },
 
@@ -41,15 +46,13 @@ function saskatchewanWellParser (wellData) {
       return {
         region: wellData.Region,
         country: wellData.Country,
-        coordinates: wellData.Location
-          ? {
-            lat: wellData.Location.Lat,
-            lon: wellData.Location.Lon
-          } : null,
+        coordinates: wellData.SurfaceCoordinates
+          ? wellData.SurfaceCoordinates
+          : null,
 
-        wellStatus: wellData.LaheeClass,
+        wellStatus: wellData.LaheeClass || null,
         substance: null,
-        drillDirection: drillDirection(wellData.Trajectory),
+        drillDirection: drillDirection(relevantComponent.Trajectory),
 
         isLatest: wellData.Next === 'null' || !wellData.Next
       }

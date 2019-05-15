@@ -214,42 +214,87 @@ test('Correctly parses a BC well', t => {
   t.deepEqual(actual, expected, msg)
 })
 
-test('Correctly parses a SK well', t => {
+test('Correctly parses a SK well (1)', t => {
   const msg = 'Well should be parsed'
   const well = wells[3]
   const actual = wellParser(well)
   const expected = {
-    uuid: 'a3b6d939-d9d1-4a4d-a4c5-ab36b4d550d8',
+    uuid: '5c27fb41eff7bf1498a4d4e5d97b046c0cae7222',
     primaryHeader: {
       label: 'Well Name',
-      value: 'NORTHERN BLIZZARD RESOURCES INC. HZ 15-22-42-25 7-22-42-25'
+      value: 'VOC ET AL NORTH PORTAL HZ 3D16-1-3A1-1-1-4'
     },
     subheader: {
       label: 'UWI',
-      value: 'SK WI 101072204225W300'
+      value: 'SK WI 191010100104W200'
     },
     govId: {
       label: 'License Number',
-      value: '50241'
+      value: '12L264'
     },
     surfaceLocation: {
       label: 'Surface Land Description',
-      value: '15-22-042-25W3'
+      value: '16-01-001-04W2'
     },
     owner: {
       label: 'Licensee',
-      value: 'NORTHERN BLIZZARD RESOURCES INC.'
+      value: 'CRESCENT POINT ENERGY CORP.'
     },
     attributes: {
       country: 'CA',
       region: 'SK',
-      coordinates: null,
+      coordinates: {
+        lat: 49.0127449,
+        lon: -102.41203308
+      },
+      wellStatus: null,
+      substance: null,
+      drillDirection: 'HZ',
+      isLatest: true
+    },
+    wellData: well
+  }
+  t.deepEqual(actual, expected, msg)
+})
 
+test('Correctly parses a SK well (2)', t => {
+  const msg = 'Well should be parsed'
+  const well = wells[4]
+  const actual = wellParser(well)
+  const expected = {
+    uuid: '813531c66630903152f2671713ba298e8e4cfe34',
+    primaryHeader: {
+      label: 'Well Name',
+      value: 'ALDON OILS LTD. HZ 12-11-6-7 4-11-6-7'
+    },
+    subheader: {
+      label: 'UWI',
+      value: 'SK WI 104041100607W202'
+    },
+    govId: {
+      label: 'License Number',
+      value: '100000'
+    },
+    surfaceLocation: {
+      label: 'Surface Land Description',
+      value: '12-11-006-07W2'
+    },
+    owner: {
+      label: 'Licensee',
+      value: 'ALDON OILS LTD.'
+    },
+    attributes: {
+      country: 'CA',
+      region: 'SK',
+      coordinates: {
+        lat: 49.45926285,
+        lon: -102.85360718
+      },
       wellStatus: 'Dev Well',
       substance: null,
       drillDirection: 'HZ',
 
-      isLatest: false
+      isLatest: true
     },
     wellData: well
   }
