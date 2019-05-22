@@ -86,6 +86,7 @@ test('Correctly parses an AB well', t => {
   const msg = 'Well should be parsed'
   const well = wells[0]
   const actual = wellParser(well)
+  t.log(well.SurfaceCoordinates)
   const expected = {
     uuid: '30d3c778-ef5e-44b4-903e-3daa26c291b5',
     primaryHeader: {
@@ -112,7 +113,6 @@ test('Correctly parses an AB well', t => {
       country: 'CA',
       region: 'AB',
       coordinates: null,
-
       wellStatus: 'NPW (C)',
       substance: 'GAS',
       drillDirection: 'DIR',
@@ -157,11 +157,9 @@ test('Correctly parses an AB well (2)', t => {
         lat: 12.34567,
         lon: 12.34567
       },
-
       wellStatus: 'NPW (C)',
       substance: 'GAS',
       drillDirection: 'DIR',
-
       isLatest: false
     },
     wellData: well
@@ -202,11 +200,9 @@ test('Correctly parses a BC well', t => {
         lat: 56.989252116743806,
         lon: -120.23508913272731
       },
-
       wellStatus: 'ABAN',
       substance: 'UND',
       drillDirection: false,
-
       isLatest: true
     },
     wellData: well
@@ -293,7 +289,6 @@ test('Correctly parses a SK well (2)', t => {
       wellStatus: 'Dev Well',
       substance: null,
       drillDirection: 'HZ',
-
       isLatest: true
     },
     wellData: well
