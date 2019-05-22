@@ -41,10 +41,10 @@ function albertaWellParser (wellData) {
       return {
         region: wellData.Region,
         country: wellData.Country,
-        coordinates: wellData.Location
+        coordinates: wellData.SurfaceCoordinates
           ? {
-            lat: wellData.Location.Lat,
-            lon: wellData.Location.Lon
+            lat: wellData.SurfaceCoordinates.lat,
+            lon: wellData.SurfaceCoordinates.lon
           } : null,
 
         wellStatus: wellData.LaheeClassification,
