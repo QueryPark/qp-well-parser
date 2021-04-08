@@ -1,11 +1,21 @@
-import bc from './bc'
-import alberta from './alberta'
-import saskatchewan from './saskatchewan'
+const bc= require( './bc')
+const alberta= require( './alberta')
+const saskatchewan= require( './saskatchewan')
+const texas= require( './tx')
+const mb= require( './mb')
+const nd= require( './nd')
+const ok= require( './ok')
+const co = require('./co')
 
 const parsers = {
   BC: bc,
   AB: alberta,
-  SK: saskatchewan
+  SK: saskatchewan,
+  TX: texas,
+  MB: mb,
+  ND: nd,
+  OK: ok,
+  CO : co
 }
 
 const standardWell = {
@@ -48,10 +58,11 @@ const standardWell = {
 
 function parse (well) {
   // A well must have a region to be considered valid
-  if (!well || !well.Region) throw new Error(`.Region not provided`)
+  //console.log(well.region)
+  if (!well || !well.Region ) throw new Error(`.Region not provided`)
 
   // We use the region to determine how to parse the well
-  const region = well.Region
+  const region = well.Region 
 
   // Check for a valid region, or throw an error if the region is unsupported
   if (!parsers[region]) throw new Error(`.Region not supported: ${region}`)
@@ -72,6 +83,6 @@ function parse (well) {
   return standardizedWell
 }
 
-export default {
-  parse, standardWell
-}
+module.exports = Object.assign(standardWell, {
+ parse
+})
